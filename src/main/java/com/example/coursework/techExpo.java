@@ -15,11 +15,12 @@ public class techExpo extends Application {
         scene1.getStylesheets().add(getClass().getResource("stylesheets/scene_1.css").toExternalForm());
         primaryStage.setTitle("Tech_expo 2.0");
         primaryStage.setScene(scene1);
-        primaryStage.setScene(scene1);
         primaryStage.show();
     }
 
     public static void main(String[] args) {
+        System.out.println("Starting Application");
         launch(args);
+        System.out.println("Closing Application");
     }
 }
