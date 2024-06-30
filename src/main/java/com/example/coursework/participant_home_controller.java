@@ -37,9 +37,15 @@ public class participant_home_controller {
 
 
     @FXML
-    void onClickAddProj(ActionEvent event) {
+    void onClickAddProj(ActionEvent event) throws IOException{
         if (event.getSource() == addproj) {
             System.out.println("add project button clicked");
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("fxmls/addProject.fxml"));
+            Scene scene = new Scene(fxmlloader.load());
+            scene.getStylesheets().add(getClass().getResource("stylesheets/addProject.css").toExternalForm());
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         }
     }
 
@@ -58,9 +64,10 @@ public class participant_home_controller {
     }
 
     @FXML
-    void onClickReqChange(ActionEvent event)  {
+    void onClickReqChange(ActionEvent event) throws IOException {
         if (event.getSource() == reqChange) {
             System.out.println("request to change button clicked");
+
 
 
         }
