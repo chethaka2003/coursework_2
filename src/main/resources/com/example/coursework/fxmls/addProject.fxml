@@ -1,12 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.addProject_controller">
+<AnchorPane prefHeight="462.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.addProject_controller">
    <children>
-      <StackPane prefHeight="400.0" prefWidth="174.0" />
-      <StackPane layoutX="174.0" prefHeight="400.0" prefWidth="425.0" />
+      <StackPane prefHeight="462.0" prefWidth="174.0">
+         <children>
+            <VBox fx:id="vbox" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label fx:id="pr_id1" alignment="CENTER" prefHeight="58.0" prefWidth="174.0" text="Project ID" textAlignment="CENTER" />
+                  <Label fx:id="pr_name2" alignment="CENTER" prefHeight="58.0" prefWidth="174.0" text="Project_name" textAlignment="CENTER" />
+                  <Label fx:id="pr_cat1" alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="58.0" prefWidth="174.0" text="Category" textAlignment="CENTER" />
+                  <Label fx:id="member1" alignment="CENTER" layoutX="10.0" layoutY="111.0" prefHeight="58.0" prefWidth="174.0" text="Team members" textAlignment="CENTER" />
+                  <Label fx:id="des1" alignment="CENTER" layoutX="10.0" layoutY="161.0" prefHeight="58.0" prefWidth="174.0" text="Description" textAlignment="CENTER" />
+                  <Label fx:id="country1" alignment="CENTER" layoutX="10.0" layoutY="212.0" prefHeight="58.0" prefWidth="174.0" text="Country" textAlignment="CENTER" />
+                  <Label fx:id="logo1" alignment="CENTER" layoutX="10.0" layoutY="262.0" prefHeight="58.0" prefWidth="174.0" text="Teamlogo" textAlignment="CENTER" />
+                  <ProgressBar prefHeight="34.0" prefWidth="174.0" progress="0.0" />
+                  <Label alignment="CENTER" text="Completing..." textAlignment="CENTER" />
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+      <StackPane layoutX="174.0" prefHeight="462.0" prefWidth="480.0">
+         <children>
+            <ScrollPane fx:id="scrollpane" prefHeight="462.0" prefWidth="512.0">
+               <content>
+                  <Pane fx:id="addProject" prefHeight="1056.0" prefWidth="463.0">
+                     <children>
+                        <Label layoutX="147.0" layoutY="14.0" text="Adding project details" textFill="#615e5e">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="56.0" text="Please fill all the details below" />
+                        <Label layoutX="14.0" layoutY="90.0" text="Project ID :" textFill="#615e5e">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="pr_id" blendMode="OVERLAY" layoutX="125.0" layoutY="88.0" prefHeight="25.0" prefWidth="271.0" promptText="Enter project ID" />
+                        <Label layoutX="14.0" layoutY="140.0" text="Project name :" textFill="#615e5e">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="192.0" text="Category :" textFill="#615e5e">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cat_list" blendMode="OVERLAY" layoutX="127.0" layoutY="190.0" prefHeight="25.0" prefWidth="174.0" promptText="Please select one" />
+                        <Label layoutX="14.0" layoutY="243.0" text="Team members :" textFill="#615e5e">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="pr_name" blendMode="OVERLAY" layoutX="125.0" layoutY="137.0" prefHeight="25.0" prefWidth="271.0" promptText="Enter project name" />
+                        <TextField fx:id="member_name" blendMode="OVERLAY" layoutX="127.0" layoutY="241.0" prefHeight="25.0" prefWidth="271.0" promptText="Enter the team member name" />
+                        <Button fx:id="addmemberBtn" blendMode="OVERLAY" layoutX="310.0" layoutY="278.0" mnemonicParsing="false" onAction="#addMembertoList" text="Add member" />
+                        <ListView fx:id="memberList" blendMode="OVERLAY" layoutX="125.0" layoutY="314.0" prefHeight="115.0" prefWidth="271.0" />
+                        <Label layoutX="14.0" layoutY="323.0" text="Member list : " textFill="#615e5e">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="16.0" layoutY="461.0" text="Description : " textFill="#615e5e">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="description" blendMode="OVERLAY" layoutX="125.0" layoutY="449.0" prefHeight="149.0" prefWidth="271.0" promptText="Eneter brief description" />
+                        <Label layoutX="16.0" layoutY="636.0" text="Country : " textFill="#615e5e">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="countryCombo" blendMode="OVERLAY" layoutX="125.0" layoutY="634.0" prefHeight="25.0" prefWidth="271.0" promptText="Select your country from here" />
+                        <Label layoutX="16.0" layoutY="703.0" text="Team logo : " textFill="#615e5e">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="browsebtn" blendMode="OVERLAY" layoutX="127.0" layoutY="702.0" mnemonicParsing="false" onAction="#add_file" text="Browse" />
+                        <ImageView fx:id="logoView" fitHeight="220.0" fitWidth="302.0" layoutX="125.0" layoutY="742.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="resetbtn" layoutX="334.0" layoutY="1009.0" mnemonicParsing="false" onAction="#inputReset" prefHeight="25.0" prefWidth="54.0" text="Reset" />
+                        <Button fx:id="submitbtn" layoutX="400.0" layoutY="1009.0" mnemonicParsing="false" onAction="#inputSubmit" text="Submit" />
+                        <Button fx:id="backbtn" layoutX="18.0" layoutY="1009.0" mnemonicParsing="false" onAction="#inputBack" prefHeight="25.0" prefWidth="54.0" text="Back" />
+                     </children>
+                  </Pane>
+               </content></ScrollPane>
+         </children></StackPane>
    </children>
 </AnchorPane>

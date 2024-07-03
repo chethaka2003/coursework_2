@@ -1,0 +1,15 @@
+#vbox {
+    -fx-background-color: #924DBF;
+}
+
+#addProject {
+    -fx-background-image:url('bg4.png');
+    -fx-background-position: center;
+    -fx-background-radius:6;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:463px 1056px;
+}
+
+#scrollpane {
+    -fx-background-color: #7338A0;
+}
