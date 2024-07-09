@@ -4,45 +4,73 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="background" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.techExpo_controller">
+<AnchorPane fx:id="background" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.techExpo_controller">
    <children>
-      <Label fx:id="title" alignment="CENTER" layoutX="71.0" layoutY="27.0" prefHeight="46.0" prefWidth="465.0" text="Welcome to the TECH EXPO 2.0" textAlignment="CENTER" textFill="#c0becf">
-         <font>
-            <Font name="Yu Gothic UI Light" size="31.0" />
-         </font>
-      </Label>
-      <Label fx:id="title2" layoutX="65.0" layoutY="106.0" text="Login" textFill="#b9b2b9">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Label>
-      <TextField fx:id="usernamefield" blendMode="OVERLAY" layoutX="232.0" layoutY="168.0" prefHeight="26.0" prefWidth="298.0" promptText="User name" />
-      <PasswordField fx:id="pwdfield" blendMode="OVERLAY" layoutX="232.0" layoutY="212.0" prefHeight="26.0" prefWidth="298.0" promptText="Password" />
-      <Label fx:id="username" layoutX="94.0" layoutY="164.0" prefHeight="34.0" prefWidth="94.0" text="User name" textFill="WHITE">
-         <font>
-            <Font name="Yu Gothic Light" size="15.0" />
-         </font>
-      </Label>
-      <Label fx:id="pwd" layoutX="96.0" layoutY="214.0" text="Password" textFill="WHITE">
-         <font>
-            <Font name="Yu Gothic UI Light" size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="184.0" layoutY="308.0" prefHeight="22.0" prefWidth="231.0" text="If you are a participant please click here">
-         <font>
-            <Font name="Yu Gothic UI Semilight" size="13.0" />
-         </font>
-      </Label>
-      <Button fx:id="participantbtn" layoutX="270.0" layoutY="341.0" mnemonicParsing="false" onAction="#paricipantclick" style="-fx-background-color: #5856d6;" text="click me">
-         <font>
-            <Font name="Yu Gothic Light" size="12.0" />
-         </font></Button>
-      <Button fx:id="loginbtn" layoutX="443.0" layoutY="261.0" mnemonicParsing="false" onAction="#loginclick" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #5856d6;" text="Login">
-         <font>
-            <Font name="Yu Gothic UI Light" size="12.0" />
-         </font></Button>
+      <Pane fx:id="left" prefHeight="650.0" prefWidth="450.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="54.0" layoutY="204.0" prefHeight="79.0" prefWidth="342.0" text="Are you participant Then click Here" textAlignment="CENTER" textFill="#263238">
+               <font>
+                  <Font name="Segoe UI" size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="participantbtn" layoutX="175.0" layoutY="283.0" mnemonicParsing="false" onAction="#paricipantclick" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #263238;" text="click me" textFill="WHITE">
+               <font>
+                  <Font name="Yu Gothic Light" size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="title" alignment="CENTER" layoutX="210.0" layoutY="35.0" prefHeight="54.0" prefWidth="238.0" text="Welcome to the" textAlignment="CENTER" textFill="#263238">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="32.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="145.0" layoutY="418.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/sample2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="right" layoutX="450.0" prefHeight="650.0" prefWidth="450.0">
+         <children>
+            <Label fx:id="title2" layoutX="155.0" layoutY="161.0" prefHeight="46.0" prefWidth="165.0" styleClass="righttext" text="Admin Login" textFill="#b9b2b9">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernamefield" blendMode="OVERLAY" layoutX="192.0" layoutY="266.0" prefHeight="26.0" prefWidth="225.0" promptText="User name" />
+            <PasswordField fx:id="pwdfield" blendMode="OVERLAY" layoutX="192.0" layoutY="350.0" prefHeight="26.0" prefWidth="225.0" promptText="Password" />
+            <Label fx:id="username" layoutX="50.0" layoutY="261.0" prefHeight="35.0" prefWidth="132.0" styleClass="righttext" text="User name" textFill="WHITE">
+               <font>
+                  <Font name="Yu Gothic Light" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="pwd" layoutX="57.0" layoutY="343.0" styleClass="righttext" text="Password" textFill="WHITE">
+               <font>
+                  <Font name="Yu Gothic UI Light" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="loginbtn" layoutX="343.0" layoutY="410.0" mnemonicParsing="false" onAction="#loginclick" prefHeight="26.0" prefWidth="73.0" style="-fx-background-color: #e0f7fa;" text="Login">
+               <font>
+                  <Font name="Yu Gothic UI Light" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="3.0" layoutY="40.0" text="TECH EXPO 2.0" textFill="#e0f7fa">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="32.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="163.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/sample1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

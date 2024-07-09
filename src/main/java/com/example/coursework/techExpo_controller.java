@@ -48,12 +48,19 @@ public class techExpo_controller {
     private TextField usernamefield;
 
     @FXML
-    void loginclick(ActionEvent event) {
+    void loginclick(ActionEvent event) throws IOException{
         if (event.getSource() == loginbtn){
             String username = usernamefield.getText();
             String password = pwdfield.getText();
             if (username.equals("admin")&&password.equals("admin")){
                 System.out.println("Login Successful");
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/AdminPage.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                scene.getStylesheets().add(getClass().getResource("stylesheets/adminPage.css").toExternalForm());
+                primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                primaryStage.setScene(scene);
+                primaryStage.show();
+
             }
             else {
                 System.out.println("wrong password");
@@ -77,6 +84,7 @@ public class techExpo_controller {
                 }
                 else {
                     System.out.println("You cant add after the random spotlight case");
+
                 }
             }
 

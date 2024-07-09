@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,8 +38,8 @@ public class participant_home_controller {
 
 
     @FXML
-    void onClickAddProj(ActionEvent event) throws IOException{
-        if (event.getSource() == addproj) {
+    void onClickAddProj(MouseEvent event) throws IOException{
+
             System.out.println("add project button clicked");
             FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("fxmls/addProject.fxml"));
             Scene scene = new Scene(fxmlloader.load());
@@ -46,12 +47,12 @@ public class participant_home_controller {
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
-        }
+
     }
 
     @FXML
-    void onClickBack2Home(ActionEvent event) throws IOException {
-        if (event.getSource() == back2home) {
+    void onClickBack2Home(MouseEvent event) throws IOException {
+
             System.out.println("Back to home button clicked");
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/welcome_user.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
@@ -60,18 +61,22 @@ public class participant_home_controller {
             stage.setScene(scene);
             stage.show();
 
-        }
+
     }
 
     @FXML
-    void onClickReqChange(ActionEvent event) throws IOException {
-        if (event.getSource() == reqChange) {
+    void onClickReqChange(MouseEvent event) throws IOException {
+
             System.out.println("request to change button clicked");
 
 
 
-        }
+
 
     }
+
+
+
+
 
 }

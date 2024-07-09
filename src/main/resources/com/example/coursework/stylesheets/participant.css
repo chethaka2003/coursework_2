@@ -1,51 +1,29 @@
-.button1 {
-    -fx-background-color: #924DBF;
-    -fx-background-radius: 25px;
-    -fx-transition: 0.5s;
-    -fx-border-color: white;
-    -fx-border-width: 5px;
-    -fx-font-size: 14px;
+
+#participant_home{
+    -fx-background-image:url('adminBg.jpg');
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:900px 650px;
 }
 
-.button2 {
-    -fx-background-color: #9E72C3;
-    -fx-background-radius: 25px;
-    -fx-border-color: white;
-    -fx-border-width: 5px;
-    -fx-font-size: 14px;
+.addProject{
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-transition: transform 0.3s;
 }
 
-.button3 {
-    -fx-background-color: #7338A0;
-    -fx-background-radius: 25px;
-    -fx-border-color: white;
-    -fx-border-width: 5px;
-    -fx-font-size: 14px;
+.addProject:hover{
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
 }
 
-.button1:hover {
-    -fx-background-color: white;
-    -fx-background-radius: 25px;
-    -fx-border-color: #924DBF;
-    -fx-border-width: 5px;
-    -fx-font-size: 16px;
-
+.req2change{
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-transition: transform 0.3s;
 }
 
-.button2:hover {
-    -fx-background-color: white;
-    -fx-background-radius: 25px;
-    -fx-border-color: #924DBF;
-    -fx-border-width: 5px;
-    -fx-font-size: 16px;
-
-}
-
-.button3:hover {
-    -fx-background-color: white;
-    -fx-background-radius: 25px;
-    -fx-border-color: #924DBF;
-    -fx-border-width: 5px;
-    -fx-font-size: 16px;
-
+.req2change:hover{
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
 }

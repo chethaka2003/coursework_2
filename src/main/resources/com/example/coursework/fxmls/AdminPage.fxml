@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Adminpage" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.AdminPageController">
+   <children>
+      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="56.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true" styleClass="resultbtn">
+         <image>
+            <Image url="@../images/show_result.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="388.0" layoutY="275.0" onMouseClicked="#Viewprojects" pickOnBounds="true" preserveRatio="true" styleClass="viewprojbtn">
+         <image>
+            <Image url="@../images/view.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="227.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true" styleClass="deleteprojbtn">
+         <image>
+            <Image url="@../images/delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="555.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true" styleClass="updateprjbtn">
+         <image>
+            <Image url="@../images/update.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="732.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true" styleClass="judgebtn">
+         <image>
+            <Image url="@../images/star_giver.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="743.0" layoutY="547.0" prefHeight="100.0" prefWidth="152.0" styleClass="massage">
+         <children>
+            <ImageView fitHeight="43.0" fitWidth="41.0" layoutX="57.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/massage.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="23.0" fitWidth="68.0" layoutX="84.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/red_circle.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="92.0" layoutY="29.0" prefHeight="14.0" prefWidth="13.0" text="1" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="394.0" layoutY="410.0" text="View projects" textFill="#b1abab">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="555.0" layoutY="410.0" text="Update project" textFill="#b1abab">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="745.0" layoutY="410.0" text="Give points" textFill="#b1abab">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="227.0" layoutY="410.0" text="Delete projects" textFill="#b1abab">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="67.0" layoutY="410.0" text="Show result" textFill="#b1abab">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ImageView accessibleRole="BUTTON" fitHeight="41.0" fitWidth="59.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backBtn" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/Adminback.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -8,6 +9,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -15,90 +17,152 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="462.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.addProject_controller">
+<AnchorPane fx:id="addingBg" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.addProject_controller">
    <children>
-      <StackPane prefHeight="462.0" prefWidth="174.0">
+      <StackPane prefHeight="650.0" prefWidth="174.0">
          <children>
-            <VBox fx:id="vbox" prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="vbox" prefHeight="502.0" prefWidth="174.0">
                <children>
-                  <Label fx:id="pr_id1" alignment="CENTER" prefHeight="58.0" prefWidth="174.0" text="Project ID" textAlignment="CENTER" />
-                  <Label fx:id="pr_name2" alignment="CENTER" prefHeight="58.0" prefWidth="174.0" text="Project_name" textAlignment="CENTER" />
-                  <Label fx:id="pr_cat1" alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="58.0" prefWidth="174.0" text="Category" textAlignment="CENTER" />
-                  <Label fx:id="member1" alignment="CENTER" layoutX="10.0" layoutY="111.0" prefHeight="58.0" prefWidth="174.0" text="Team members" textAlignment="CENTER" />
-                  <Label fx:id="des1" alignment="CENTER" layoutX="10.0" layoutY="161.0" prefHeight="58.0" prefWidth="174.0" text="Description" textAlignment="CENTER" />
-                  <Label fx:id="country1" alignment="CENTER" layoutX="10.0" layoutY="212.0" prefHeight="58.0" prefWidth="174.0" text="Country" textAlignment="CENTER" />
-                  <Label fx:id="logo1" alignment="CENTER" layoutX="10.0" layoutY="262.0" prefHeight="58.0" prefWidth="174.0" text="Teamlogo" textAlignment="CENTER" />
-                  <ProgressBar prefHeight="34.0" prefWidth="174.0" progress="0.0" />
-                  <Label alignment="CENTER" text="Completing..." textAlignment="CENTER" />
+                  <Label fx:id="pr_id1" alignment="CENTER" prefHeight="58.0" prefWidth="174.0" text="Project ID" textAlignment="CENTER" textFill="#f7f9f2">
+                     <font>
+                        <Font name="Comic Sans MS" size="15.0" />
+                     </font></Label>
+                  <Label fx:id="pr_name2" alignment="CENTER" prefHeight="58.0" prefWidth="174.0" text="Project_name" textAlignment="CENTER" textFill="#f7f9f2">
+                     <font>
+                        <Font name="Comic Sans MS" size="15.0" />
+                     </font></Label>
+                  <Label fx:id="pr_cat1" alignment="CENTER" layoutX="10.0" layoutY="44.0" prefHeight="58.0" prefWidth="174.0" text="Category" textAlignment="CENTER" textFill="#f7f9f2">
+                     <font>
+                        <Font name="Comic Sans MS" size="15.0" />
+                     </font></Label>
+                  <Label fx:id="member1" alignment="CENTER" layoutX="10.0" layoutY="111.0" prefHeight="58.0" prefWidth="174.0" text="Team members" textAlignment="CENTER" textFill="#f7f9f2">
+                     <font>
+                        <Font name="Comic Sans MS" size="15.0" />
+                     </font></Label>
+                  <Label fx:id="des1" alignment="CENTER" layoutX="10.0" layoutY="161.0" prefHeight="58.0" prefWidth="174.0" text="Description" textAlignment="CENTER" textFill="#f7f9f2">
+                     <font>
+                        <Font name="Comic Sans MS" size="15.0" />
+                     </font></Label>
+                  <Label fx:id="country1" alignment="CENTER" layoutX="10.0" layoutY="212.0" prefHeight="58.0" prefWidth="174.0" text="Country" textAlignment="CENTER" textFill="#f7f9f2">
+                     <font>
+                        <Font name="Comic Sans MS" size="15.0" />
+                     </font></Label>
+                  <Label fx:id="logo1" alignment="CENTER" layoutX="10.0" layoutY="262.0" prefHeight="58.0" prefWidth="174.0" text="Teamlogo" textAlignment="CENTER" textFill="#f7f9f2">
+                     <font>
+                        <Font name="Comic Sans MS" size="15.0" />
+                     </font></Label>
+                  <Pane prefHeight="241.0" prefWidth="174.0">
+                     <children>
+                        <ProgressBar layoutY="211.0" prefHeight="34.0" prefWidth="174.0" progress="0.0">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </ProgressBar>
+                        <Label alignment="CENTER" layoutX="50.0" layoutY="225.0" text="Completing..." textAlignment="CENTER" textFill="#b1afff" />
+                        <ImageView fitHeight="25.0" fitWidth="40.0" layoutX="36.0" layoutY="186.0" onMouseClicked="#inputBack" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Adminback.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="34.0" fitWidth="41.0" layoutX="103.0" layoutY="182.0" onMouseClicked="#homeclick" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/home.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="submitbtn" layoutX="19.0" layoutY="113.0" mnemonicParsing="false" onAction="#inputSubmit" prefHeight="34.0" prefWidth="136.0" style="-fx-background-color: #F7F9F2;" text="Submit">
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/upload.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="resetbtn" layoutX="17.0" layoutY="40.0" mnemonicParsing="false" onAction="#inputReset" prefHeight="34.0" prefWidth="136.0" style="-fx-background-color: #F7F9F2;" text="Reset">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/clear.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
                </children>
             </VBox>
          </children>
       </StackPane>
-      <StackPane layoutX="174.0" prefHeight="462.0" prefWidth="480.0">
+      <StackPane layoutX="174.0" prefHeight="650.0" prefWidth="725.0">
          <children>
-            <ScrollPane fx:id="scrollpane" prefHeight="462.0" prefWidth="512.0">
+            <ScrollPane fx:id="scrollpane" prefHeight="638.0" prefWidth="480.0">
                <content>
-                  <Pane fx:id="addProject" prefHeight="1056.0" prefWidth="463.0">
+                  <Pane fx:id="addProject" prefHeight="1042.0" prefWidth="710.0">
                      <children>
-                        <Label layoutX="147.0" layoutY="14.0" text="Adding project details" textFill="#615e5e">
+                        <Label layoutX="247.0" layoutY="24.0" text="Adding project details" textFill="#615e5e">
                            <font>
-                              <Font name="System Bold Italic" size="20.0" />
+                              <Font name="Rockwell" size="26.0" />
                            </font>
                         </Label>
-                        <Label layoutX="14.0" layoutY="56.0" text="Please fill all the details below" />
-                        <Label layoutX="14.0" layoutY="90.0" text="Project ID :" textFill="#615e5e">
+                        <Label layoutX="29.0" layoutY="71.0" text="Please fill all the details below" />
+                        <Label layoutX="142.0" layoutY="128.0" text="Project ID :" textFill="#b1afff">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="pr_id" blendMode="OVERLAY" layoutX="125.0" layoutY="88.0" prefHeight="25.0" prefWidth="271.0" promptText="Enter project ID" />
-                        <Label layoutX="14.0" layoutY="140.0" text="Project name :" textFill="#615e5e">
+                        <TextField fx:id="pr_id" layoutX="298.0" layoutY="126.0" prefHeight="25.0" prefWidth="271.0" promptText="Enter project ID" />
+                        <Label layoutX="142.0" layoutY="178.0" text="Project name :" textFill="#b1afff">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="14.0" layoutY="192.0" text="Category :" textFill="#615e5e">
+                        <Label layoutX="142.0" layoutY="230.0" text="Category :" textFill="#b1afff">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cat_list" blendMode="OVERLAY" layoutX="127.0" layoutY="190.0" prefHeight="25.0" prefWidth="174.0" promptText="Please select one" />
-                        <Label layoutX="14.0" layoutY="243.0" text="Team members :" textFill="#615e5e">
+                        <ComboBox fx:id="cat_list" layoutX="295.0" layoutY="228.0" prefHeight="25.0" prefWidth="174.0" promptText="Please select one" style="-fx-background-color: #B1AFFF;" />
+                        <Label layoutX="142.0" layoutY="281.0" text="Team members :" textFill="#b1afff">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="pr_name" blendMode="OVERLAY" layoutX="125.0" layoutY="137.0" prefHeight="25.0" prefWidth="271.0" promptText="Enter project name" />
-                        <TextField fx:id="member_name" blendMode="OVERLAY" layoutX="127.0" layoutY="241.0" prefHeight="25.0" prefWidth="271.0" promptText="Enter the team member name" />
-                        <Button fx:id="addmemberBtn" blendMode="OVERLAY" layoutX="310.0" layoutY="278.0" mnemonicParsing="false" onAction="#addMembertoList" text="Add member" />
-                        <ListView fx:id="memberList" blendMode="OVERLAY" layoutX="125.0" layoutY="314.0" prefHeight="115.0" prefWidth="271.0" />
-                        <Label layoutX="14.0" layoutY="323.0" text="Member list : " textFill="#615e5e">
+                        <TextField fx:id="pr_name" layoutX="297.0" layoutY="175.0" prefHeight="25.0" prefWidth="271.0" promptText="Enter project name" />
+                        <TextField fx:id="member_name" layoutX="294.0" layoutY="279.0" prefHeight="25.0" prefWidth="271.0" promptText="Enter the team member name" />
+                        <Button fx:id="addmemberBtn" layoutX="463.0" layoutY="310.0" mnemonicParsing="false" onAction="#addMembertoList" style="-fx-background-color: #B1AFFF;" text="Add member">
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/addmember.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <ListView fx:id="memberList" layoutX="296.0" layoutY="352.0" prefHeight="115.0" prefWidth="271.0" />
+                        <Label layoutX="142.0" layoutY="361.0" text="Member list : " textFill="#b1afff">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
-                        <Label layoutX="16.0" layoutY="461.0" text="Description : " textFill="#615e5e">
+                        <Label layoutX="144.0" layoutY="499.0" text="Description : " textFill="#b1afff">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="description" blendMode="OVERLAY" layoutX="125.0" layoutY="449.0" prefHeight="149.0" prefWidth="271.0" promptText="Eneter brief description" />
-                        <Label layoutX="16.0" layoutY="636.0" text="Country : " textFill="#615e5e">
+                        <TextArea fx:id="description" layoutX="296.0" layoutY="487.0" prefHeight="149.0" prefWidth="271.0" promptText="Eneter brief description" />
+                        <Label layoutX="144.0" layoutY="674.0" text="Country : " textFill="#b1afff">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="countryCombo" blendMode="OVERLAY" layoutX="125.0" layoutY="634.0" prefHeight="25.0" prefWidth="271.0" promptText="Select your country from here" />
-                        <Label layoutX="16.0" layoutY="703.0" text="Team logo : " textFill="#615e5e">
+                        <ComboBox fx:id="countryCombo" layoutX="294.0" layoutY="672.0" prefHeight="25.0" prefWidth="271.0" promptText="Select your country from here" style="-fx-background-color: #B1AFFF;" />
+                        <Label layoutX="144.0" layoutY="741.0" text="Team logo : " textFill="#b1afff">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="browsebtn" blendMode="OVERLAY" layoutX="127.0" layoutY="702.0" mnemonicParsing="false" onAction="#add_file" text="Browse" />
-                        <ImageView fx:id="logoView" fitHeight="220.0" fitWidth="302.0" layoutX="125.0" layoutY="742.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button fx:id="resetbtn" layoutX="334.0" layoutY="1009.0" mnemonicParsing="false" onAction="#inputReset" prefHeight="25.0" prefWidth="54.0" text="Reset" />
-                        <Button fx:id="submitbtn" layoutX="400.0" layoutY="1009.0" mnemonicParsing="false" onAction="#inputSubmit" text="Submit" />
-                        <Button fx:id="backbtn" layoutX="18.0" layoutY="1009.0" mnemonicParsing="false" onAction="#inputBack" prefHeight="25.0" prefWidth="54.0" text="Back" />
+                        <Button fx:id="browsebtn" layoutX="292.0" layoutY="740.0" mnemonicParsing="false" onAction="#add_file" style="-fx-background-color: #B1AFFF;" text="Browse" />
+                        <ImageView fx:id="logoView" fitHeight="220.0" fitWidth="302.0" layoutX="234.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </Pane>
                </content></ScrollPane>

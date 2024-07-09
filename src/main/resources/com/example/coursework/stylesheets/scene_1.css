@@ -1,6 +1,15 @@
-#background {
-    -fx-background-image:url('bg2.jpg');
-    -fx-background-position: center;
-    -fx-background-radius:6;
 
+#left {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #e0f7fa, #ffffff);
+    -fx-padding: 20px;
+}
+
+#right {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #263238, #37474f);
+    -fx-padding: 20px;
+}
+
+.righttext {
+    -fx-font-size: 24px;
+    -fx-text-fill: #eceff1;
 }

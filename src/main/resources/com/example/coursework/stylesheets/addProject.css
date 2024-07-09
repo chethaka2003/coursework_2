@@ -1,15 +1,13 @@
-#vbox {
-    -fx-background-color: #924DBF;
-}
-
-#addProject {
-    -fx-background-image:url('bg4.png');
+#addingBg{
+    -fx-background-color: #B1AFFF;
     -fx-background-position: center;
-    -fx-background-radius:6;
     -fx-background-repeat: no-repeat;
-    -fx-background-size:463px 1056px;
+    -fx-background-size:900px 650px;
 }
 
-#scrollpane {
-    -fx-background-color: #7338A0;
+#addProject{
+    -fx-background-color: #F7F9F2;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:714px 1049px;
 }

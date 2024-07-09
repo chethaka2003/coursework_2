@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
@@ -131,7 +132,7 @@ public class addProject_controller implements Initializable {
     }
 
     @FXML
-    void inputBack(ActionEvent event) throws IOException {
+    void inputBack(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/participant_home.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(fxmlLoader.load());
@@ -160,6 +161,17 @@ public class addProject_controller implements Initializable {
     @FXML
     void inputSubmit(ActionEvent event) {
 
+    }
+
+    @FXML
+    void homeclick(MouseEvent event)throws IOException{
+        System.out.println("homeclick");
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/welcome_user.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(getClass().getResource("stylesheets/scene_1.css").toExternalForm());
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
