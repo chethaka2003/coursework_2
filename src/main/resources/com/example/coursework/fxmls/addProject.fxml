@@ -121,7 +121,7 @@
                               <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cat_list" layoutX="295.0" layoutY="228.0" prefHeight="25.0" prefWidth="174.0" promptText="Please select one" style="-fx-background-color: #B1AFFF;" />
+                        <ComboBox fx:id="cat_list" layoutX="295.0" layoutY="228.0" onAction="#onSelectCategory" prefHeight="25.0" prefWidth="174.0" promptText="Please select one" style="-fx-background-color: #B1AFFF;" />
                         <Label layoutX="142.0" layoutY="281.0" text="Team members :" textFill="#b1afff">
                            <font>
                               <Font name="Yu Gothic UI Semibold" size="14.0" />
@@ -155,14 +155,14 @@
                               <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="countryCombo" layoutX="294.0" layoutY="672.0" prefHeight="25.0" prefWidth="271.0" promptText="Select your country from here" style="-fx-background-color: #B1AFFF;" />
+                        <ComboBox fx:id="countryCombo" layoutX="294.0" layoutY="672.0" onAction="#onClickCountry" prefHeight="25.0" prefWidth="271.0" promptText="Select your country from here" style="-fx-background-color: #B1AFFF;" />
                         <Label layoutX="144.0" layoutY="741.0" text="Team logo : " textFill="#b1afff">
                            <font>
                               <Font name="Yu Gothic UI Semibold" size="14.0" />
                            </font>
                         </Label>
                         <Button fx:id="browsebtn" layoutX="292.0" layoutY="740.0" mnemonicParsing="false" onAction="#add_file" style="-fx-background-color: #B1AFFF;" text="Browse" />
-                        <ImageView fx:id="logoView" fitHeight="220.0" fitWidth="302.0" layoutX="234.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="logoView" fitHeight="220.0" fitWidth="302.0" layoutX="292.0" layoutY="797.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </Pane>
                </content></ScrollPane>

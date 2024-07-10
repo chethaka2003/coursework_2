@@ -18,13 +18,13 @@ public class AdminPageController {
     private AnchorPane Adminpage;
 
     @FXML
-    void Viewprojects(MouseEvent event) {
+    void Viewprojects(MouseEvent event) {           //Create viewproject button
         System.out.println("View projects button clicked...");
 
     }
 
     @FXML
-    void backBtn(MouseEvent event) throws IOException {
+    void backBtn(MouseEvent event) throws IOException {         //Create backbtn button
         System.out.println("Back button clicked...");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/welcome_user.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
