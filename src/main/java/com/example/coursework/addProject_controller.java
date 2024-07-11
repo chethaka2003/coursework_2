@@ -328,7 +328,7 @@ public class addProject_controller implements Initializable {
 
 
             } else {
-                showAlert("Error 404","You must need at least four members to add a project");
+                showAlert("Error 404","You must need at least two members to add a project");
             }
         }
 

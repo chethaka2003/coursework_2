@@ -9,7 +9,7 @@
    <children>
       <ScrollPane fx:id="scrollpaneBg" prefHeight="650.0" prefWidth="900.0">
          <content>
-            <Pane fx:id="viewprojectsBg" prefHeight="649.0" prefWidth="884.0" />
+            <Pane fx:id="viewprojectsBg" prefHeight="650.0" prefWidth="884.0" />
          </content>
       </ScrollPane>
    </children>
