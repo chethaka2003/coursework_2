@@ -1,0 +1,9 @@
+#viewprojectsBg{
+    -fx-background-image:url('adminBg.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+#project-icons {
+
+}

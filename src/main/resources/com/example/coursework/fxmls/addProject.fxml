@@ -163,6 +163,7 @@
                         </Label>
                         <Button fx:id="browsebtn" layoutX="292.0" layoutY="740.0" mnemonicParsing="false" onAction="#add_file" style="-fx-background-color: #B1AFFF;" text="Browse" />
                         <ImageView fx:id="logoView" fitHeight="220.0" fitWidth="302.0" layoutX="292.0" layoutY="797.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="removememberBtn1" layoutX="333.0" layoutY="310.0" mnemonicParsing="false" onAction="#removeMemberfromList" style="-fx-background-color: #B1AFFF;" text="Remove member" />
                      </children>
                   </Pane>
                </content></ScrollPane>

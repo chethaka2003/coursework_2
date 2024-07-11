@@ -23,7 +23,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javax.imageio.IIOException;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public class addProject_controller implements Initializable {
     private int count;
 
     public Stage stage;
-    public HashMap <Integer, Projects> projects = new HashMap<Integer, Projects>();     //Creating a data structure
+    public static HashMap <Integer, Projects> projects = new HashMap<Integer, Projects>();     //Creating a data structure
     public String image_path;
 
     @FXML
@@ -113,6 +115,14 @@ public class addProject_controller implements Initializable {
     @FXML
     private VBox vbox;
 
+    private void showAlert(String title, String content) {      //Showing Alert massage
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb){
         cat_list.getItems().addAll(categories);
@@ -121,11 +131,7 @@ public class addProject_controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.matches("\\d*")) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);             //Showing alert if entered wrong value
-                    alert.setTitle("Invalid Input");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Please enter only numeric values.");
-                    alert.showAndWait();
+                    showAlert("Invalid Input","Please enter only numeric values.");
                     // Revert to the old value if the new value is invalid
                     pr_id.setText(oldValue);
                 }
@@ -138,27 +144,17 @@ public class addProject_controller implements Initializable {
 
         //Creating liter for project name
         pr_name.textProperty().addListener(new ChangeListener<String>() {
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println(newValue);
-                System.out.println(oldValue);
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {       //creating observer
                 if (!newValue.isEmpty() && newValue.matches(".*\\d.*")) {
                     // Show an alert message
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Invalid Input");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Please enter only letters into project name.");
-                    alert.showAndWait();
+                    showAlert("Invalid Input","Please enter only letters into project name.");
 
                     // Revert to the old value if the new value is invalid
                     pr_name.setText(oldValue);
                 }
 
                 else if (newValue.length()>20) {            //Checking whether project name is exceeding the maximum number of characters
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Out of limit");
-                    alert.setHeaderText(null);
-                    alert.setContentText("You cant enter more than 20 characters into project name");
-                    alert.showAndWait();
+                    showAlert("Out of limit","You cant enter more than 20 characters into project name");
                     pr_name.setText(oldValue);
                 }
 
@@ -175,19 +171,11 @@ public class addProject_controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {      //Creating observer to check  member name
                 if (newValue.matches(".*\\d.*")) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Invalid Input");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Please enter only strings to the member name.");
-                    alert.showAndWait();
+                    showAlert("Invalid Input","Please enter only strings to the member name.");
                     member_name.setText(oldValue);
                 }
                 else if (newValue.length()>20) {            //Checking whether project name is exceeding the maximum number of characters
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Out of limit");
-                    alert.setHeaderText(null);
-                    alert.setContentText("You cant enter more than 20 characters into member name");
-                    alert.showAndWait();
+                    showAlert("Out of limit","You cant enter more than 20 characters into member name");
                     member_name.setText(oldValue);
                 }
                 else {
@@ -200,12 +188,7 @@ public class addProject_controller implements Initializable {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
                 if (newValue.length()>100) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);     //Showing alert when adding more than 100 characters
-                    alert.setTitle("Limit Exceeded");
-                    alert.setHeaderText(null);
-                    alert.setContentText("You cant enter more than 100 characters in description.");
-                    alert.showAndWait();
-
+                    showAlert("Limit Exceeded","You cant enter more than 100 characters in description.");
                     description.setText(oldValue);
                 }
                 else {
@@ -213,6 +196,17 @@ public class addProject_controller implements Initializable {
                 }
             }
         });
+    }
+
+
+    //changing scenes
+    private void switchScene(MouseEvent event, String fxmlPath, String cssPath) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
+        stage.setScene(scene);
+        stage.show();
     }
 
 
@@ -229,15 +223,27 @@ public class addProject_controller implements Initializable {
         }
         else {
             System.out.println("You can only add 4 members");       //Showing alert when trying to add more than four members
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Limit Reached");
-            alert.setHeaderText(null);
-            alert.setContentText("You have added the maximum number of members");
-            alert.showAndWait();
+            showAlert("Limit Reached","You have added the maximum number of members");
         }
 
     }
 
+    @FXML
+    void removeMemberfromList(ActionEvent event) {
+        if (count>0){
+            members.removeLast();               //removing members from member list
+            memberList.getItems().clear();
+            memberList.getItems().addAll(members);
+            count-=1;
+            member1.setText(count+" members");
+        }
+        else {
+            showAlert("No members","There are no members in this list to remove");
+        }
+
+    }
+
+    //Creating file cto choose as logo
     @FXML
     void add_file(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -247,72 +253,125 @@ public class addProject_controller implements Initializable {
         File selectedfile = fileChooser.showOpenDialog(stage);
         if (selectedfile != null){
             Image image = new Image(selectedfile.toURI().toString());
+            image_path = selectedfile.toURI().toString();
             logoView.setImage(image);
+
         }
     }
 
     @FXML
+    //Creating button to go  back
     void inputBack(MouseEvent event) throws IOException {           //Creating a back button
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/participant_home.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(getClass().getResource("stylesheets/participant.css").toExternalForm());
-        stage.setScene(scene);
-        stage.show();
+        switchScene(event,"fxmls/participant_home.fxml","stylesheets/participant.css");
 
 
     }
+
 
     @FXML
     void inputReset(ActionEvent event) {
-        if (pr_id.getText().equals("")){            //Checking Project ID is empty or not
-            System.out.println("You cant enter null project ID");
-        }
-        else {
-            if (pr_id.getText().matches("//d+")){               //Checking that project Id is already exist or not
-                System.out.println("Your project ID already exists");
-            }
-            else {
-                System.out.println("Your project ID has nothing wrong");
-                Projects project = new Projects(Integer.parseInt(pr_id.getText()),pr_name.getText(),description.getText(),cat_list.getValue(),memberList.getItems().toArray(new String[0]),countryCombo.getValue(),"still making");
-                projects.put(Integer.parseInt(pr_id.getText()),project);
-
-            }
-        }
-
+        setFieldsEmpty();
+        setLeftPannel();
+    }
+    private void setFieldsEmpty(){          //set All fields empty
+        pr_id.setText("");
+        pr_name.setText("");
+        cat_list.getSelectionModel().clearSelection();
+        members.clear();
+        count=0;
+        memberList.getItems().clear();
+        description.setText("");
+        countryCombo.getSelectionModel().clearSelection();
+        countryCombo.setPromptText("Select your country from here");
+        cat_list.setPromptText("Select a category");
+        logoView.setImage(null);
+    }
+    private void setLeftPannel() {          //Set left panel into default state
+        description.setText("");
+        pr_id1.setText("Project ID");
+        pr_name2.setText("Project_name");
+        pr_cat1.setText("Category");
+        member1.setText("Team members");
+        des1.setText("Description");
+        country1.setText("Country");
     }
 
     @FXML
-    void inputSubmit(ActionEvent event) {
+    void inputSubmit(ActionEvent event) throws IOException {
         System.out.println("submit btn clicked.....");
-        if (count!=1){
-            Projects project = new Projects(Integer.parseInt(pr_id.getText()),pr_name.getText(),description.getText(),cat_list.getValue(),memberList.getItems().toArray(new String[0]),countryCombo.getValue(),"still making");     //Alert creating a new project
-            projects.put(Integer.parseInt(pr_id.getText()),project);        //parsing project into hashmap
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);      //Showing confirmation when successfully added
-            alert.setTitle("Successfully added");
-            alert.setHeaderText(null);
-            alert.setContentText("You have successfully added the project "+pr_name.getText());
-            alert.showAndWait();
+        //Checking weather all the fields are completed or not
+        if (pr_name.getText().isEmpty()||pr_id.getText().isEmpty()||cat_list.getItems().isEmpty()||description.getText().isEmpty()||countryCombo.getItems().isEmpty()||logoView.getImage()==null){
+            showAlert("Complete all","Please fill all the fields in here");
         }
         else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);     //Showing alert when there is a one member
-            alert.setTitle("Error 404");
-            alert.setHeaderText(null);
-            alert.setContentText("You must need at least four members to add a project");
-            alert.showAndWait();
+            //Checking if project ID is already exist or not
+            if (projects.containsKey(Integer.parseInt(pr_id.getText()))){
+                System.out.println("Project already exists");
+                showAlert("Invalid project ID","Your project ID already exists. PLease enter a new one");
+            }
+            else if (count != 1) {
+                Projects project = new Projects(Integer.parseInt(pr_id.getText()), pr_name.getText(), description.getText(), cat_list.getValue(), memberList.getItems().toArray(new String[0]), countryCombo.getValue(),image_path);     //Alert creating a new project
+                projects.put(Integer.parseInt(pr_id.getText()), project);        //parsing project into hashmap
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);      //Showing confirmation when successfully added
+                System.out.println("project added successfully");
+                alert.setTitle("Successfully added");
+                alert.setHeaderText(null);
+                alert.setContentText("You have successfully added the project " + pr_name.getText());
+                alert.showAndWait();
+
+                saveProject(project);       //Saving project details temporally
+
+                //Clear all project details after adding successful project
+                setFieldsEmpty();
+                setLeftPannel();
+
+
+
+            } else {
+                showAlert("Error 404","You must need at least four members to add a project");
+            }
         }
 
     }
 
+    private void saveProject(Projects project) throws IOException {                 //Saving project into text files
+        String filename;
+        switch (project.getCategory()){
+            case " 1. Projection mapping":
+                filename = "projection_mapping.txt";
+                break;
+            case " 2. Virtual walls":
+                filename = "virtual_walls.txt";
+                break;
+            case " 3. Interactive flooring":
+                filename = "interactive_flooring.txt";
+                break;
+            case " 4. AR and VR":
+                filename = "ar_vr.txt";
+                break;
+            case " 5. AI robot":
+                filename = "ai_robot.txt";
+                break;
+            default:
+                filename = "other_projects.txt";
+                break;
+        }
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filename,true));
+        writer.write("Project ID : "+project.getProjectId()+"\n");
+        writer.write("Project name : "+project.getProjectName()+"\n");
+        writer.write("Category : "+project.getCategory()+"\n");
+        writer.write("Team members : "+String.join(", ", project.getMembers())+"\n");
+        writer.write("Description "+project.getProjectDescription()+"\n");
+        writer.write("Country : "+project.getCountry()+"\n");
+        writer.write("Image path : "+project.getImage_path()+"\n");
+        writer.write("----------------------------------------------------------------------------------\n");
+        writer.close();
+    }
+
     @FXML
-    void homeclick(MouseEvent event)throws IOException{
-        System.out.println("homeclick");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/welcome_user.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(getClass().getResource("stylesheets/scene_1.css").toExternalForm());
-        stage.setScene(scene);
-        stage.show();
+    void homeclick(MouseEvent event)throws IOException{         //Adding a new button to go to login page
+        switchScene(event,"fxmls/welcome_user.fxml","stylesheets/scene_1.css");
     }
 
     @FXML

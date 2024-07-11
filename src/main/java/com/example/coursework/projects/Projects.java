@@ -21,7 +21,37 @@ public class Projects {             //Creating project class
         this.image_path = image_path;
     }
 
-    
+    //Getting category
+    public String getCategory(){
+        return category;
+    }
 
+    //Getting members
+    public String [] getMembers(){
+        return members;
+    }
 
+    //Getting project ID
+    public int getProjectId(){
+        return project_Id;
+    }
+
+    //Getting project name
+    public String getProjectName(){
+        return project_Name;
+    }
+
+    //Getting project description
+    public String getProjectDescription(){
+        return project_Description;
+    }
+
+    //Getting project country
+    public String getCountry(){
+        return country;
+    }
+
+    public String getImage_path() {
+        return image_path;
+    }
 }

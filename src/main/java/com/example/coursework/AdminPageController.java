@@ -18,21 +18,27 @@ public class AdminPageController {
     private AnchorPane Adminpage;
 
     @FXML
-    void Viewprojects(MouseEvent event) {           //Create viewproject button
+    void Viewprojects(MouseEvent event) throws IOException{           //Create viewproject button
         System.out.println("View projects button clicked...");
+        switchScene(event,"fxmls/viewProjects.fxml","stylesheets/ViewProjects.css");
+    }
 
+    //changing scenes
+    private void switchScene(MouseEvent event, String fxmlPath, String cssPath) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add(getClass().getResource(cssPath).toExternalForm());
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void backBtn(MouseEvent event) throws IOException {         //Create backbtn button
         System.out.println("Back button clicked...");
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/welcome_user.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        scene.getStylesheets().add(getClass().getResource("stylesheets/scene_1.css").toExternalForm());
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        switchScene(event,"fxmls/welcome_user.fxml","stylesheets/scene_1.css");
     }
+
 
 }
 
