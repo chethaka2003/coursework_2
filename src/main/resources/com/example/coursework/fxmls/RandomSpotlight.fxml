@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="randomBg" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.RandomSpotlightController">
+   <children>
+      <Pane fx:id="showPane" layoutX="57.0" layoutY="49.0" prefHeight="554.0" prefWidth="374.0">
+         <children>
+            <ImageView fx:id="viewlogo" fitHeight="150.0" fitWidth="200.0" layoutX="87.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="28.0" layoutY="207.0" prefHeight="32.0" prefWidth="113.0" text="Project name :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="240.0" prefHeight="32.0" prefWidth="80.0" text="Category :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="275.0" prefHeight="32.0" prefWidth="74.0" text="Country :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="310.0" prefHeight="32.0" prefWidth="99.0" text="Description :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="354.0" text="Team members :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <ListView fx:id="viewTeamMembers" blendMode="OVERLAY" layoutX="62.0" layoutY="395.0" prefHeight="115.0" prefWidth="250.0" />
+            <Label fx:id="viewProjectName" layoutX="153.0" layoutY="210.0" prefHeight="26.0" prefWidth="208.0" text="Label">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectCategory" layoutX="117.0" layoutY="243.0" prefHeight="26.0" prefWidth="250.0" text="Label">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectCountry" layoutX="108.0" layoutY="278.0" prefHeight="26.0" prefWidth="250.0" text="Label">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectDescription" layoutX="132.0" layoutY="313.0" prefHeight="26.0" prefWidth="234.0" text="Label">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="174.0" prefHeight="32.0" prefWidth="92.0" text="Project ID :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="newProjectId" layoutX="125.0" layoutY="177.0" prefHeight="26.0" prefWidth="234.0" text="Label">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="596.0" layoutY="140.0" prefHeight="35.0" prefWidth="140.0" text="Judge 01" textFill="#aea1a1">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="596.0" layoutY="238.0" prefHeight="35.0" prefWidth="140.0" text="Judge 02" textFill="#aea1a1">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="596.0" layoutY="340.0" prefHeight="35.0" prefWidth="140.0" text="Judge 03" textFill="#aea1a1">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="596.0" layoutY="441.0" prefHeight="35.0" prefWidth="140.0" text="Judge 04" textFill="#aea1a1">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="58.0" fitWidth="46.0" layoutX="830.0" layoutY="583.0" onMouseClicked="#nextItem" pickOnBounds="true" preserveRatio="true" styleClass="next">
+         <image>
+            <Image url="@../images/Next.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j1s1" fitHeight="35.0" fitWidth="46.0" layoutX="579.0" layoutY="175.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="813.0" layoutY="181.0" onMouseClicked="#judgeOneRemove" pickOnBounds="true" preserveRatio="true" styleClass="del">
+         <image>
+            <Image url="@../images/remove.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="767.0" layoutY="176.0" onMouseClicked="#judgeOneadd" pickOnBounds="true" preserveRatio="true" styleClass="add">
+         <image>
+            <Image url="@../images/addstar.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j1s2" fitHeight="35.0" fitWidth="46.0" layoutX="614.0" layoutY="175.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j1s3" fitHeight="35.0" fitWidth="46.0" layoutX="649.0" layoutY="175.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j1s4" fitHeight="35.0" fitWidth="46.0" layoutX="684.0" layoutY="175.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j1s5" fitHeight="35.0" fitWidth="46.0" layoutX="719.0" layoutY="175.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j2s1" fitHeight="35.0" fitWidth="46.0" layoutX="579.0" layoutY="273.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j2s2" fitHeight="35.0" fitWidth="46.0" layoutX="614.0" layoutY="273.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j2s3" fitHeight="35.0" fitWidth="46.0" layoutX="649.0" layoutY="273.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j2s4" fitHeight="35.0" fitWidth="46.0" layoutX="684.0" layoutY="273.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j2s5" fitHeight="35.0" fitWidth="46.0" layoutX="719.0" layoutY="273.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j3s1" fitHeight="35.0" fitWidth="46.0" layoutX="579.0" layoutY="375.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j3s2" fitHeight="35.0" fitWidth="46.0" layoutX="614.0" layoutY="375.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j3s3" fitHeight="35.0" fitWidth="46.0" layoutX="649.0" layoutY="375.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j3s4" fitHeight="35.0" fitWidth="46.0" layoutX="684.0" layoutY="375.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j3s5" fitHeight="35.0" fitWidth="46.0" layoutX="719.0" layoutY="375.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j4s1" fitHeight="35.0" fitWidth="46.0" layoutX="583.0" layoutY="476.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j4s2" fitHeight="35.0" fitWidth="46.0" layoutX="618.0" layoutY="476.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j4s3" fitHeight="35.0" fitWidth="46.0" layoutX="653.0" layoutY="476.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j4s4" fitHeight="35.0" fitWidth="46.0" layoutX="688.0" layoutY="476.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="j4s5" fitHeight="35.0" fitWidth="46.0" layoutX="723.0" layoutY="476.0" opacity="0.2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/star.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="815.0" layoutY="273.0" onMouseClicked="#judgetwoRemove" pickOnBounds="true" preserveRatio="true" styleClass="del">
+         <image>
+            <Image url="@../images/remove.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="769.0" layoutY="268.0" onMouseClicked="#judgetwoadd" pickOnBounds="true" preserveRatio="true" styleClass="add">
+         <image>
+            <Image url="@../images/addstar.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="816.0" layoutY="375.0" onMouseClicked="#judgeThreeRemove" pickOnBounds="true" preserveRatio="true" styleClass="del">
+         <image>
+            <Image url="@../images/remove.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="770.0" layoutY="370.0" onMouseClicked="#judgeThreeadd" pickOnBounds="true" preserveRatio="true" styleClass="add">
+         <image>
+            <Image url="@../images/addstar.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="820.0" layoutY="475.0" onMouseClicked="#judgeFourRemove" pickOnBounds="true" preserveRatio="true" styleClass="del">
+         <image>
+            <Image url="@../images/remove.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="46.0" fitWidth="46.0" layoutX="774.0" layoutY="470.0" onMouseClicked="#judgeFouradd" pickOnBounds="true" preserveRatio="true" styleClass="add">
+         <image>
+            <Image url="@../images/addstar.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="35.0" fitWidth="46.0" layoutX="780.0" layoutY="20.0" onMouseClicked="#Backbtn" pickOnBounds="true" preserveRatio="true" styleClass="back">
+         <image>
+            <Image url="@../images/Adminback.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="52.0" fitWidth="53.0" layoutX="829.0" layoutY="13.0" onMouseClicked="#Homebtn" pickOnBounds="true" preserveRatio="true" styleClass="home">
+         <image>
+            <Image url="@../images/home.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

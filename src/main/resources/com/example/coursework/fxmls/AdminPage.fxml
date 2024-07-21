@@ -19,17 +19,17 @@
             <Image url="@../images/view.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="227.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true" styleClass="deleteprojbtn">
+      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="227.0" layoutY="275.0" onMouseClicked="#deleteProjectClicked" pickOnBounds="true" preserveRatio="true" styleClass="deleteprojbtn">
          <image>
             <Image url="@../images/delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="555.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true" styleClass="updateprjbtn">
+      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="555.0" layoutY="275.0" onMouseClicked="#updateProjectbtn" pickOnBounds="true" preserveRatio="true" styleClass="updateprjbtn">
          <image>
             <Image url="@../images/update.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="732.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true" styleClass="judgebtn">
+      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="732.0" layoutY="275.0" onMouseClicked="#givePointsClicked" pickOnBounds="true" preserveRatio="true" styleClass="judgebtn">
          <image>
             <Image url="@../images/star_giver.png" />
          </image>
@@ -78,7 +78,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <ImageView accessibleRole="BUTTON" fitHeight="41.0" fitWidth="59.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backBtn" pickOnBounds="true" preserveRatio="true">
+      <ImageView accessibleRole="BUTTON" fitHeight="41.0" fitWidth="59.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backBtn" pickOnBounds="true" preserveRatio="true" styleClass="back">
          <image>
             <Image url="@../images/Adminback.png" />
          </image>

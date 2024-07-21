@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="UpdatingBg" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.UpdatingProjectController">
+   <children>
+      <Pane fx:id="sampleView" layoutX="482.0" layoutY="20.0" prefHeight="603.0" prefWidth="397.0">
+         <children>
+            <ImageView fx:id="viewlogo" fitHeight="150.0" fitWidth="200.0" layoutX="110.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="11.0" layoutY="252.0" prefHeight="32.0" prefWidth="113.0" text="Project name :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="285.0" prefHeight="32.0" prefWidth="86.0" text="Category :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font></Label>
+            <Label layoutX="11.0" layoutY="320.0" prefHeight="32.0" prefWidth="80.0" text="Country :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font></Label>
+            <Label layoutX="11.0" layoutY="355.0" prefHeight="32.0" prefWidth="99.0" text="Description :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="399.0" text="Team members :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <ListView fx:id="viewTeamMembers" blendMode="OVERLAY" layoutX="75.0" layoutY="438.0" prefHeight="115.0" prefWidth="250.0" />
+            <Label fx:id="viewProjectName" layoutX="136.0" layoutY="258.0" prefHeight="26.0" prefWidth="250.0" text="Label">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectCategory" layoutX="136.0" layoutY="292.0" prefHeight="26.0" prefWidth="250.0" text="Label">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectCountry" layoutX="136.0" layoutY="326.0" prefHeight="26.0" prefWidth="250.0" text="Label">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectDescription" layoutX="136.0" layoutY="359.0" prefHeight="26.0" prefWidth="250.0" text="Label">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="83.0" layoutY="14.0" text="Live updated project details">
+               <font>
+                  <Font name="Modern No. 20" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="219.0" prefHeight="32.0" prefWidth="113.0" text="Project ID :">
+               <font>
+                  <Font name="Microsoft YaHei UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="newProjectId" layoutX="136.0" layoutY="225.0" prefHeight="26.0" prefWidth="250.0" text="Label">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TextField fx:id="newProjectName" layoutX="81.0" layoutY="123.0" prefHeight="26.0" prefWidth="331.0" promptText="Eneter the new project name" />
+      <ComboBox fx:id="newProjectCategory" layoutX="81.0" layoutY="175.0" onAction="#onClickCategory" prefHeight="26.0" prefWidth="331.0" promptText="Select the new Category" />
+      <ComboBox fx:id="newProjectCountry" layoutX="81.0" layoutY="232.0" onAction="#onClickCountry" prefHeight="26.0" prefWidth="331.0" promptText="Select the new Country" />
+      <TextArea fx:id="newProjectDescription" layoutX="81.0" layoutY="330.0" prefHeight="106.0" prefWidth="331.0" promptText="Eneter the New description here" />
+      <Button layoutX="81.0" layoutY="283.0" mnemonicParsing="false" onAction="#ChangeLogobtn" text="click here to change logo" />
+      <TextField fx:id="newTeamMember" layoutX="81.0" layoutY="456.0" prefHeight="26.0" prefWidth="331.0" promptText="Enter the new team member name" />
+      <Button layoutX="326.0" layoutY="494.0" mnemonicParsing="false" onAction="#addMemberBtn" text="Add member" />
+      <ImageView fitHeight="32.0" fitWidth="40.0" layoutX="21.0" layoutY="20.0" onMouseClicked="#backbtn" pickOnBounds="true" preserveRatio="true" styleClass="back">
+         <image>
+            <Image url="@../images/Adminback.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="65.0" layoutY="12.0" onMouseClicked="#homebtn" pickOnBounds="true" preserveRatio="true" styleClass="home">
+         <image>
+            <Image url="@../images/home.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="208.0" layoutY="494.0" mnemonicParsing="false" onAction="#removeMemberBtn" text="Remove member" />
+      <ImageView fitHeight="51.0" fitWidth="51.0" layoutX="205.0" layoutY="585.0" onMouseClicked="#submitBtnClicked" pickOnBounds="true" preserveRatio="true" styleClass="submitBtn">
+         <image>
+            <Image url="@../images/upload%202.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

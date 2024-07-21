@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="DeletingProjectBg" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.DeletingProjectController">
+   <children>
+      <Pane fx:id="showPane" layoutX="101.0" layoutY="76.0" prefHeight="510.0" prefWidth="369.0">
+         <children>
+            <ImageView fx:id="viewLogo" fitHeight="168.0" fitWidth="221.0" layoutX="65.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" styleClass="image" />
+            <Label layoutX="31.0" layoutY="214.0" text="Project Name :">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="31.0" layoutY="251.0" text="Project ID :">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="373.0" text="Project Description :">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="290.0" text="Country :">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="333.0" text="Category :">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="35.0" layoutY="415.0" text="Members :">
+               <font>
+                  <Font name="Yu Gothic UI Semibold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectName" layoutX="135.0" layoutY="216.0" prefHeight="17.0" prefWidth="221.0" text="Label">
+               <font>
+                  <Font name="Yu Gothic Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectID" layoutX="111.0" layoutY="253.0" prefHeight="17.0" prefWidth="247.0" text="Label">
+               <font>
+                  <Font name="Yu Gothic Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectCountry" layoutX="100.0" layoutY="292.0" prefHeight="17.0" prefWidth="258.0" text="Label">
+               <font>
+                  <Font name="Yu Gothic Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectCategory" layoutX="106.0" layoutY="335.0" prefHeight="17.0" prefWidth="258.0" text="Label">
+               <font>
+                  <Font name="Yu Gothic Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectDescription" layoutX="174.0" layoutY="374.0" prefHeight="17.0" prefWidth="184.0" text="Label">
+               <font>
+                  <Font name="Yu Gothic Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="viewProjectMembers" layoutX="111.0" layoutY="417.0" prefHeight="17.0" prefWidth="247.0" text="Label">
+               <font>
+                  <Font name="Yu Gothic Regular" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fitHeight="35.0" fitWidth="47.0" layoutX="14.0" layoutY="16.0" onMouseClicked="#backBtnClicked" pickOnBounds="true" preserveRatio="true" styleClass="back">
+         <image>
+            <Image url="@../images/Adminback.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="49.0" fitWidth="53.0" layoutX="60.0" layoutY="9.0" onMouseClicked="#homeBtnClicked" pickOnBounds="true" preserveRatio="true" styleClass="home">
+         <image>
+            <Image url="@../images/home.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="96.0" fitWidth="68.0" layoutX="626.0" layoutY="263.0" onMouseClicked="#deleteBtnClicked" pickOnBounds="true" preserveRatio="true" styleClass="delete">
+         <image>
+            <Image url="@../images/delete.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="617.0" layoutY="351.0" text="Delete project" textFill="#8e8686">
+         <font>
+            <Font name="Nirmala UI" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

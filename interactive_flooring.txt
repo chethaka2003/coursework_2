@@ -1,16 +1,8 @@
-Project ID : 5465
-Project name : wqeqe
+Project ID : 4556
+Project name : chethaka
 Category :  3. Interactive flooring
-Team members : esdad, sadasd
-Description sadad
-Country : Thailand
-Image path : file:/C:/Users/Chethaka/Pictures/Screenshots/Screenshot%202024-07-08%20234117.png
-----------------------------------------------------------------------------------
-Project ID : 5555
-Project name : CHETHAKA
-Category :  3. Interactive flooring
-Team members : HGF, BFGB, BFGB
-Description RTGRG
-Country : Srilanka
-Image path : file:/C:/Users/Chethaka/Pictures/Screenshots/Screenshot%20(88).png
+Team members : sumudu, galepatha, chamara weerasinge
+Description : hhhhhh
+Country : Japan
+Image path : file:/C:/Users/Chethaka/Pictures/Screenshots/Screenshot%20(85).png
 ----------------------------------------------------------------------------------

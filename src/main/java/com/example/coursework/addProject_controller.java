@@ -38,7 +38,7 @@ public class addProject_controller implements Initializable {
 
     //Countries which can choose in project
     private String[] countries = {"Srilanka","Japan","Malaysia","Thailand","India","China","USA","UK","Other"};
-    private String[] categories = {" 1. Projection mapping"," 2. Virtual walls"," 3. Interactive flooring"," 4 . AR and VR"," 5. AI robot"};            //Categories of the project
+    private String[] categories = {" 1. Projection mapping"," 2. Virtual walls"," 3. Interactive flooring"," 4. AR and VR"," 5. AI robot"};            //Categories of the project
     private ArrayList<String> members = new ArrayList();
     private int count;
 
@@ -334,9 +334,9 @@ public class addProject_controller implements Initializable {
 
     }
 
-    private void saveProject(Projects project) throws IOException {                 //Saving project into text files
+    public static void saveProject(Projects project) throws IOException {                 //Saving project into text files
         String filename;
-        switch (project.getCategory()){
+        switch (project.getCategory()){     //Choosing the file name
             case " 1. Projection mapping":
                 filename = "projection_mapping.txt";
                 break;
@@ -362,7 +362,7 @@ public class addProject_controller implements Initializable {
         writer.write("Project name : "+project.getProjectName()+"\n");
         writer.write("Category : "+project.getCategory()+"\n");
         writer.write("Team members : "+String.join(", ", project.getMembers())+"\n");
-        writer.write("Description "+project.getProjectDescription()+"\n");
+        writer.write("Description : "+project.getProjectDescription()+"\n");
         writer.write("Country : "+project.getCountry()+"\n");
         writer.write("Image path : "+project.getImage_path()+"\n");
         writer.write("----------------------------------------------------------------------------------\n");
