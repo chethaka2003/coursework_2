@@ -15,7 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -26,6 +25,7 @@ import java.util.ResourceBundle;
 
 public class DeletingProjectController implements Initializable {
 
+    //Creating stage to switch scenes
     Stage stage;
 
     @FXML
@@ -73,6 +73,7 @@ public class DeletingProjectController implements Initializable {
     @FXML
     void deleteBtnClicked(MouseEvent event) throws IOException{
         System.out.println("delete Button Clicked...");
+        //Getting user confirmation before delete
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Deleting..");
         alert.setHeaderText(null);
@@ -80,7 +81,9 @@ public class DeletingProjectController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK){
             addProject_controller.projects.remove(DeleteProjectController.project_ID);
+            //clear all text file
             deleteTextfile();
+            //saving into text files again
             for (int i: addProject_controller.projects.keySet()){
                 addProject_controller.saveProject(addProject_controller.projects.get(i));
             };
@@ -89,7 +92,6 @@ public class DeletingProjectController implements Initializable {
         else {
             System.out.println("Continue editing....");
         }
-
     }
 
     //Home button clicked
@@ -100,6 +102,7 @@ public class DeletingProjectController implements Initializable {
 
     }
 
+    ///switch scenes
     private void switchScene(MouseEvent event, String fxmlPath, String cssPath) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -122,6 +125,7 @@ public class DeletingProjectController implements Initializable {
         viewLogo.setImage(image);
     }
 
+    //Method to delete all details in text files
     public static void deleteTextfile() throws IOException {
         String[] filenames = {"projection_mapping.txt", "virtual_walls.txt", "interactive_flooring.txt",
                 "ar_vr.txt", "ai_robot.txt", "other_projects.txt"};

@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class DeleteProjectController {
@@ -38,6 +37,7 @@ public class DeleteProjectController {
         switchScene(event,"fxmls/welcome_user.fxml","stylesheets/scene_1.css");
     }
 
+    //Switch scenes
     private void switchScene(MouseEvent event, String fxmlPath, String cssPath) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -57,7 +57,6 @@ public class DeleteProjectController {
             //opening new window if project ID is correct
             project_ID = Integer.parseInt(deleteProjectID.getText());
             switchScene(event1,"fxmls/DeletingProject.fxml","stylesheets/DeletingProject.css");
-
         }
     }
 

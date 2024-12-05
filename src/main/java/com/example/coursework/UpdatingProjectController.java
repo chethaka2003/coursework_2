@@ -19,7 +19,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -31,17 +30,17 @@ import java.util.*;
 
 public class UpdatingProjectController implements Initializable {
 
-    //Variables to hold project details
+    //Variables to hold project details temporary
     String Category = "";
     String country = "";
     String projectName = "";
     String projectDescription = "";
     String imagePath = "";
     //Assigning variable to count the members count
-    static int count = addProject_controller.projects.get(UpdateProjectController.project_ID).getMembers().length;
-    static ObservableList<String> teamMembers = FXCollections.observableArrayList(addProject_controller.projects.get(UpdateProjectController.project_ID).getMembers());
+    int count = addProject_controller.projects.get(UpdateProjectController.project_ID).getMembers().length;
+    ObservableList<String> teamMembers = FXCollections.observableArrayList(addProject_controller.projects.get(UpdateProjectController.project_ID).getMembers());
 
-
+    //Defining the values in combo boxes
     private String[] countries = {"Srilanka","Japan","Malaysia","Thailand","India","China","USA","UK","Other"};
     private String[] categories = {" 1. Projection mapping"," 2. Virtual walls"," 3. Interactive flooring"," 4. AR and VR"," 5. AI robot"};            //Categories of the project
 
@@ -89,6 +88,7 @@ public class UpdatingProjectController implements Initializable {
     @FXML
     private ImageView viewlogo;
 
+    //Initialize method to continue the same rules which has in adding project
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         newProjectCategory.getItems().addAll(categories);
@@ -103,6 +103,10 @@ public class UpdatingProjectController implements Initializable {
                     showAlert("Invalid input","Please enter String values to project name");
                     newProjectName.setText(oldValue);
                 }
+                else if (newValue.length()>20) {            //Checking whether project name is exceeding the maximum number of characters
+                    showAlert("Out of limit","You cant enter more than 20 characters into project name");
+                    newProjectName.setText(oldValue);
+                }
                 else{
                     viewProjectName.setText(newValue);
                     projectName = newProjectName.getText();
@@ -111,7 +115,7 @@ public class UpdatingProjectController implements Initializable {
             }
         });
 
-        //Checking description
+        //Checking description characters are more than 100 or not
         newProjectDescription.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
@@ -126,6 +130,7 @@ public class UpdatingProjectController implements Initializable {
             }
         });
 
+        //Checking weather team member name contains any integer or not
         newTeamMember.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
@@ -137,6 +142,7 @@ public class UpdatingProjectController implements Initializable {
         });
     }
 
+    //Changing the logo
     @FXML
     void ChangeLogobtn(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -152,8 +158,10 @@ public class UpdatingProjectController implements Initializable {
         }
     }
 
+    //Adding members into listview
     @FXML
     void addMemberBtn(ActionEvent event) {
+        //Showing alert when count exceed four
         if (count>=4){
             showAlert("Limit Reached","You cant add more than 4 members");
         }
@@ -172,14 +180,14 @@ public class UpdatingProjectController implements Initializable {
 
     }
 
-    //adding home button
+    //adding back button
     @FXML
     void backbtn(MouseEvent event) throws IOException{
         System.out.println("Back button clicked");
         switchScene(event,"fxmls/AdminPage.fxml","stylesheets/adminPage.css");
     }
 
-    //Adding back button
+    //Adding home button
     @FXML
     void homebtn(MouseEvent event) throws IOException{
         System.out.println("Home button clicked");
@@ -248,6 +256,7 @@ public class UpdatingProjectController implements Initializable {
     //Adding a submit button
     @FXML
     void submitBtnClicked(MouseEvent event) throws IOException {
+        //Checking weather there are at least two members
         if (teamMembers.size()<=1){
             showAlert("404 Error","You must have at least two members to each team");
         }else {
@@ -257,13 +266,16 @@ public class UpdatingProjectController implements Initializable {
             alert.setContentText("Are you sure you want to Update this project?");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
+                //Updating the project details into hashmap after getting user confirmation
                 updateProject(addProject_controller.projects.get(UpdateProjectController.project_ID));
+                //delete all the text files
                 deleteTextfile();
                 //saving every project into text file again
                 for (int i : addProject_controller.projects.keySet()) {
                     addProject_controller.saveProject(addProject_controller.projects.get(i));
                 }
                 ;
+                //automatically go to the previous page
                 switchScene(event, "fxmls/AdminPage.fxml", "stylesheets/adminPage.css");
             } else {
                 System.out.println("continue editing...");

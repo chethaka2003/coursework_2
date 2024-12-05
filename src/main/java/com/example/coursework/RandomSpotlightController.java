@@ -17,7 +17,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -31,6 +30,9 @@ public class RandomSpotlightController implements Initializable {
 
     Stage stage;        //To switch between scenes
 
+    //control variable to stop accessing APD,VPD,UPD
+    public static boolean isPointsGive = false;
+
     //Creating hashmaps for Each project category
     public HashMap <Integer, Projects> category_1 = new HashMap<Integer,Projects>();
     public HashMap <Integer, Projects> category_2 = new HashMap<Integer,Projects>();
@@ -38,6 +40,7 @@ public class RandomSpotlightController implements Initializable {
     public HashMap <Integer, Projects> category_4 = new HashMap<Integer,Projects>();
     public HashMap <Integer, Projects> category_5 = new HashMap<Integer,Projects>();
 
+    //Arraylist to shuffle projects
     ArrayList<Integer> shuffledAllKeys = new ArrayList<Integer>();
 
     //Adding star count for each judge
@@ -145,6 +148,9 @@ public class RandomSpotlightController implements Initializable {
     @Override
     public void initialize (URL url, ResourceBundle rs){
 
+        //Changing the control variable
+        isPointsGive = true;
+
         //Loading project details from text files
         try {
             if(Files.exists(Paths.get("projection_mapping.txt"))) {
@@ -166,60 +172,66 @@ public class RandomSpotlightController implements Initializable {
             throw new RuntimeException(e);
         }
 
+        //Putting all hashmaps in array
         HashMap[] allHashMap = {category_1, category_2, category_3, category_4, category_5};
 
         for (HashMap i: allHashMap){
             shuffledAllKeys.addAll(shuffleKeys(i));
         }
 
+        //adding initial project to view
         ChangingPane(addProject_controller.projects.get(shuffledAllKeys.get(shuffledIndex)));
 
 
 
-
-
-        
-
     }
 
+    //Remove judge 4 stars
     @FXML
     void judgeFourRemove(MouseEvent event) {
         judge_4 = removing_stars(judge_4,j4s1,j4s2,j4s3,j4s4,j4s5);
     }
 
+    //Add judge 4 stars
     @FXML
     void judgeFouradd(MouseEvent event) {
         judge_4 = giving_stars(judge_4,j4s1,j4s2,j4s3,j4s4,j4s5);
     }
 
+    //Remove judge 1 stars
     @FXML
     void judgeOneRemove(MouseEvent event) {
         judge_1 = removing_stars(judge_1,j1s1,j1s2,j1s3,j1s4,j1s5);
     }
 
+    //Add judge 1 stars
     @FXML
     void judgeOneadd(MouseEvent event) {
         judge_1 = giving_stars(judge_1,j1s1,j1s2,j1s3,j1s4,j1s5);
 
     }
 
+    //Remove judge 3 stars
     @FXML
     void judgeThreeRemove(MouseEvent event) {
         judge_3 = removing_stars(judge_3,j3s1,j3s2,j3s3,j3s4,j3s5);
     }
 
+    //Add judge 3 stars
     @FXML
     void judgeThreeadd(MouseEvent event) {
         judge_3 = giving_stars(judge_3,j3s1,j3s2,j3s3,j3s4,j3s5);
 
     }
 
+    //Remove judge 2 stars
     @FXML
     void judgetwoRemove(MouseEvent event) {
         judge_2 = removing_stars(judge_2,j2s1,j2s2,j2s3,j2s4,j2s5);
         System.out.println(judge_2);
     }
 
+    //Add judge 2 stars
     @FXML
     void judgetwoadd(MouseEvent event) {
         judge_2 = giving_stars(judge_2,j2s1,j2s2,j2s3,j2s4,j2s5);
@@ -266,10 +278,9 @@ public class RandomSpotlightController implements Initializable {
             switchScene(event,"fxmls/AdminPage.fxml","stylesheets/adminPage.css");
 
         }
-
     }
 
-    //Loading projects which are saved in text files into hashmap
+    //Loading projects which are saved in text files into particular hashmap
     public static void loadViewProjects(String filename,HashMap obj) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String line;
@@ -322,6 +333,7 @@ public class RandomSpotlightController implements Initializable {
         }
         judge+=1;
         if (judge == 1){
+            //changing opacity
             s1.setOpacity(1);
         }
         else if(judge == 2){
@@ -363,6 +375,7 @@ public class RandomSpotlightController implements Initializable {
         }
         judge-=1;
         if (judge == 0){
+            //changing opacity
             s1.setOpacity(0.2);
             s2.setOpacity(0.2);
             s3.setOpacity(0.2);
@@ -407,6 +420,7 @@ public class RandomSpotlightController implements Initializable {
         return judge;
     }
 
+    //Changing pane
     private void ChangingPane(Projects project){
 
         ObservableList<String> teamMembers = FXCollections.observableArrayList(project.getMembers());
@@ -428,7 +442,7 @@ public class RandomSpotlightController implements Initializable {
         return keys;
     }
 
-
+    //switch scene
     private void switchScene(MouseEvent event, String fxmlPath, String cssPath) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -438,18 +452,6 @@ public class RandomSpotlightController implements Initializable {
         stage.show();
     }
 
-    @FXML
-    void Homebtn(MouseEvent event) throws IOException{
-        System.out.println("Home btn clicked");
-        switchScene(event,"fxmls/welcome_user.fxml","stylesheets/scene_1.css");
-    }
-
-    @FXML
-    void Backbtn(MouseEvent event) throws IOException{
-        System.out.println("Back button clicked");
-        switchScene(event,"fxmls/AdminPage.fxml","stylesheets/adminPage.css");
-
-    }
 
     //Setting all stars into default style
     public void resetStars() {

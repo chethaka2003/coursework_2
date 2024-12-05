@@ -10,6 +10,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.CSS;
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -22,6 +24,8 @@ public class AdminPageController implements Initializable {
 
     @FXML
     private AnchorPane Adminpage;
+
+
 
     //Adding and initialize method to run which methods need to execute from the start
     @Override
@@ -42,6 +46,7 @@ public class AdminPageController implements Initializable {
                 continue;
             }
         }
+
     }
 
     @FXML
@@ -76,23 +81,96 @@ public class AdminPageController implements Initializable {
         switchScene(event,"fxmls/welcome_user.fxml","stylesheets/scene_1.css");
     }
 
+    //Updaate project details
     @FXML
     void updateProjectbtn(MouseEvent event) throws IOException{
-        System.out.println("Update project button clicked...");
-        switchScene(event,"fxmls/UpdateProject.fxml","stylesheets/updateProject.css");
+        //Checking weather is there any project to update
+        if (addProject_controller.projects.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("There are no projects to update");
+            alert.showAndWait();
+        }
+        else if (RandomSpotlightController.isPointsGive){
+            //checking points given or not
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("You cant edit details after the Points give");
+            alert.showAndWait();
+        }
+        else {
+            System.out.println("Update project button clicked...");
+            switchScene(event,"fxmls/UpdateProject.fxml","stylesheets/updateProject.css");
+        }
+
     }
 
     @FXML
     void deleteProjectClicked(MouseEvent event) throws IOException{
-        System.out.println("Delete project button clicked.....");
-        switchScene(event,"fxmls/DeleteProject.fxml","stylesheets/DeleteProject.css");
+        //checking weather result are showed or not
+        if (RandomSpotlightController.isPointsGive){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("You cant edit details after the Points give");
+            alert.showAndWait();
+        }
+        else {
+            System.out.println("Delete project button clicked.....");
+            switchScene(event,"fxmls/DeleteProject.fxml","stylesheets/DeleteProject.css");
+        }
+
 
     }
 
     @FXML
     void givePointsClicked(MouseEvent event) throws IOException{
-        System.out.println("Randomly give stars selected");
-        switchScene(event,"fxmls/RandomSpotlight.fxml","stylesheets/RandomSpotlight.css");
+        //Checking weather at least there three projects to give stars
+        if (addProject_controller.projects.size()<=3){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("To give points you must need at least three projects");
+            alert.showAndWait();
+        }
+        //Showing alert when try to points again
+        else if (RandomSpotlightController.isPointsGive){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("You have given points already");
+            alert.showAndWait();
+        }
+        else {
+            System.out.println("Randomly give stars selected");
+            switchScene(event,"fxmls/RandomSpotlight.fxml","stylesheets/RandomSpotlight.css");
+        }
+
+    }
+
+    //Opening the result show window
+    @FXML
+    void showResult(MouseEvent event)throws IOException{
+        //checking weather points are given or not
+        if (!RandomSpotlightController.isPointsGive){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText(null);
+            alert.setContentText("You Must give stars before see the result");
+            alert.showAndWait();
+        }
+        else{
+            System.out.println("opening result show window");
+            switchScene(event,"fxmls/ShowResult.fxml","stylesheets/ShowResult.css");
+        }
+
+    }
+
+    @FXML
+    void msgView(MouseEvent event) throws IOException{
+        switchScene(event,"fxmls/ViewMassage.fxml","stylesheets/ViewMassage.css");
     }
 
 

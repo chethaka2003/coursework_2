@@ -11,3 +11,25 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size:714px 1049px;
 }
+
+.back {
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-transition: transform 0.3s;
+}
+
+.back:hover {
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+}
+
+.home {
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+    -fx-transition: transform 0.3s;
+}
+
+.home:hover {
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+}

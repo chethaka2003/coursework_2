@@ -236,15 +236,5 @@
             <Image url="@../images/addstar.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="46.0" layoutX="780.0" layoutY="20.0" onMouseClicked="#Backbtn" pickOnBounds="true" preserveRatio="true" styleClass="back">
-         <image>
-            <Image url="@../images/Adminback.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="52.0" fitWidth="53.0" layoutX="829.0" layoutY="13.0" onMouseClicked="#Homebtn" pickOnBounds="true" preserveRatio="true" styleClass="home">
-         <image>
-            <Image url="@../images/home.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

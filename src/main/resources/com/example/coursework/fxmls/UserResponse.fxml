@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="userBg" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.UserResponseController">
+   <children>
+      <Label layoutX="219.0" layoutY="95.0" prefHeight="63.0" prefWidth="461.0" text="Enter the massage You want to send to the Admin" textFill="#979993">
+         <font>
+            <Font name="Segoe UI Semibold" size="20.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="massage" layoutX="274.0" layoutY="225.0" prefHeight="200.0" prefWidth="351.0" promptText="Type in here" />
+      <ImageView fitHeight="63.0" fitWidth="97.0" layoutX="419.0" layoutY="489.0" onMouseClicked="#sendClicked" pickOnBounds="true" preserveRatio="true" styleClass="send">
+         <image>
+            <Image url="@../images/send.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="39.0" layoutX="28.0" layoutY="23.0" onMouseClicked="#backBtnClicked" pickOnBounds="true" preserveRatio="true" styleClass="back">
+         <image>
+            <Image url="@../images/Adminback.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="63.0" layoutX="77.0" layoutY="16.0" onMouseClicked="#homeBtnClicked" pickOnBounds="true" preserveRatio="true" styleClass="home">
+         <image>
+            <Image url="@../images/home.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

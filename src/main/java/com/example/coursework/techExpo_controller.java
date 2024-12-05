@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -17,7 +14,6 @@ import java.io.IOException;
 public class techExpo_controller {
 
     private Stage primaryStage;
-    public static boolean control_rss = true;
 
 
     @FXML
@@ -48,10 +44,12 @@ public class techExpo_controller {
     private TextField usernamefield;
 
     @FXML
+    //Admin click
     void loginclick(ActionEvent event) throws IOException{
         if (event.getSource() == loginbtn){
             String username = usernamefield.getText();
             String password = pwdfield.getText();
+            //Checking weather username and password are correct
             if (username.equals("admin")&&password.equals("admin")){
                 System.out.println("Login Successful");
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/AdminPage.fxml"));
@@ -63,7 +61,12 @@ public class techExpo_controller {
 
             }
             else {
-                System.out.println("wrong password");
+                //Showing alert when incorrect password entered
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Incorrect Username or Password");
+                alert.showAndWait();
             }
         }
 
@@ -73,7 +76,8 @@ public class techExpo_controller {
     void paricipantclick(ActionEvent event) throws IOException {
 
             if (event.getSource() == participantbtn) {
-                if (control_rss) {
+                //Checking weather random spotlight showcase happens or not
+                if (!RandomSpotlightController.isPointsGive) {
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("fxmls/participant_home.fxml"));
                     Scene scene = new Scene(fxmlLoader.load());
@@ -83,7 +87,12 @@ public class techExpo_controller {
                     primaryStage.show();
                 }
                 else {
-                    System.out.println("You cant add after the random spotlight case");
+                    //Showing alert when random spotlight showcase happens
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Warning");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Time period to add project details are now over");
+                    alert.showAndWait();
 
                 }
             }

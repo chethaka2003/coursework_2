@@ -9,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class UpdateProjectController {
@@ -38,6 +37,7 @@ public class UpdateProjectController {
         switchScene(event,"fxmls/welcome_user.fxml","stylesheets/scene_1.css");
     }
 
+    //Switching scenes
     private void switchScene(MouseEvent event, String fxmlPath, String cssPath) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -47,6 +47,7 @@ public class UpdateProjectController {
         stage.show();
     }
 
+    //Login button clicked
     @FXML
     void loginClicked(MouseEvent event1) throws IOException{
         //Checking weather project_ID is available or not

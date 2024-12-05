@@ -11,6 +11,7 @@ public class techExpo extends Application {
 
 
     public void start(Stage primaryStage) throws IOException {
+        //Loading the logging page
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/welcome_user.fxml"));
         Scene scene1 = new Scene(fxmlLoader.load());
         scene1.getStylesheets().add(getClass().getResource("stylesheets/scene_1.css").toExternalForm());

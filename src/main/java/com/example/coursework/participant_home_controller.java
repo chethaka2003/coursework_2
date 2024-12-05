@@ -68,6 +68,13 @@ public class participant_home_controller {
     void onClickReqChange(MouseEvent event) throws IOException {
 
             System.out.println("request to change button clicked");
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("fxmls/UserResponse.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            scene.getStylesheets().add(getClass().getResource("stylesheets/UserResponse.css").toExternalForm());
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+
 
 
 

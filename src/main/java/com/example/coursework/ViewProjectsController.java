@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -14,25 +13,21 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 public class ViewProjectsController implements Initializable {
-
-    Set<Integer> sample;
-
-    static int x = 72;          //To store the height of the pane
     static int project_count = 0;       //counting projects
+
+    //Initialize pane width
     static int pane_width = 900;
     int layoutY = 92;
     int layoutX = 55;
 
+    //Arraylist to store sorted project Ids
     List<Integer> keys = new ArrayList<>(addProject_controller.projects.keySet());
 
     Stage stage;
@@ -102,14 +97,12 @@ public class ViewProjectsController implements Initializable {
             createPane(addProject_controller.projects.get(i));
 
         }
-
-
     }
-
 
     //Create pane for each project respectively
     public void createPane(Projects project){
 
+        //checking weather pane count is more than one to expand the scroll pane
         if (project_count<1){
 
         }
@@ -117,6 +110,7 @@ public class ViewProjectsController implements Initializable {
             viewprojectsBg.setPrefWidth(pane_width+2000);
             viewprojectsBg.autosize();
         }
+        //Creating pane
         Pane pane = new Pane();
         pane.setId("pane");
         pane.setPrefHeight(470);
@@ -125,6 +119,7 @@ public class ViewProjectsController implements Initializable {
         pane.setLayoutY(layoutY);
         viewprojectsBg.getChildren().add(pane);
 
+        //Setting images
         Image image = new Image(project.getImage_path());
         ImageView imageView = new ImageView(image);
         imageView.setFitWidth(190);
@@ -133,59 +128,61 @@ public class ViewProjectsController implements Initializable {
         imageView.setLayoutX(90);
         imageView.setLayoutY(34);
 
-
+        //Showing project ID
         Label prId= new Label("Project ID : "+project.getProjectId());
         prId.setLayoutX(31);
         prId.setLayoutY(198);
         prId.setId("project-id-view");
         pane.getChildren().add(prId);
 
-
+        //Showing project name
         Label prName= new Label("Project Name : "+project.getProjectName());
         prName.setLayoutX(31);
         prName.setLayoutY(235);
         prName.setId("project-name-view");
         pane.getChildren().add(prName);
 
-
+        //Showing category
         Label prCat= new Label("Project Category : "+project.getCategory());
         prCat.setLayoutX(31);
         prCat.setLayoutY(273);
         prCat.setId("project-cat-view");
         pane.getChildren().add(prCat);
 
-
+        //Showing country
         Label prCountry= new Label("Project Country : "+project.getCountry());
         prCountry.setLayoutX(31);
         prCountry.setLayoutY(309);
         prCountry.setId("project-country-view");
         pane.getChildren().add(prCountry);
 
-
+        //Showing project description
         Label prDes= new Label("Project Description : "+project.getProjectDescription());
         prDes.setLayoutX(31);
         prDes.setLayoutY(346);
         prDes.setId("project-des-view");
         pane.getChildren().add(prDes);
 
-
+        //Showing members
         Label prMembers= new Label("Team Members : "+String.join(", ",project.getMembers()));
         prMembers.setLayoutX(31);
         prMembers.setLayoutY(383);
         prMembers.setId("project-member-view");
         pane.getChildren().add(prMembers);
 
-
+        //Increasing the size
         layoutX+=400;
         project_count++;
 
     }
 
+    //back button
     @FXML
     void backbtn(MouseEvent event) throws IOException {
         switchScene(event,"fxmls/AdminPage.fxml","stylesheets/adminPage.css");
     }
 
+    //Home button
     @FXML
     void homebtn(MouseEvent event) throws IOException {
         switchScene(event,"fxmls/welcome_user.fxml","stylesheets/scene_1.css");
@@ -201,7 +198,8 @@ public class ViewProjectsController implements Initializable {
         stage.show();
     }
 
-    private void sortedAraay(){
+    //Sorting the keys using bubble sort method
+    public void sortedAraay(){
 
         for (int i = 0; i < keys.size() - 1; i++) {
             for (int j = 0; j < keys.size() - 1 - i; j++) {

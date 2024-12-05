@@ -4,7 +4,6 @@ import com.example.coursework.projects.Projects;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,16 +12,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.InputMethodEvent;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
-import javax.imageio.IIOException;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -31,7 +25,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-import java.util.function.UnaryOperator;
 
 
 public class addProject_controller implements Initializable {
@@ -39,12 +32,12 @@ public class addProject_controller implements Initializable {
     //Countries which can choose in project
     private String[] countries = {"Srilanka","Japan","Malaysia","Thailand","India","China","USA","UK","Other"};
     private String[] categories = {" 1. Projection mapping"," 2. Virtual walls"," 3. Interactive flooring"," 4. AR and VR"," 5. AI robot"};            //Categories of the project
-    private ArrayList<String> members = new ArrayList();
-    private int count;
+    public ArrayList<String> members = new ArrayList();
+    private int count;          //count the members
 
     public Stage stage;
     public static HashMap <Integer, Projects> projects = new HashMap<Integer, Projects>();     //Creating a data structure
-    public String image_path;
+    public String image_path;       //To sore image path
 
     @FXML
     private Pane addProject;
@@ -123,6 +116,7 @@ public class addProject_controller implements Initializable {
         alert.showAndWait();
     }
 
+    //Creating a initialize method to run when the scene is loaded
     @Override
     public void initialize(URL url, ResourceBundle rb){
         cat_list.getItems().addAll(categories);
@@ -133,6 +127,10 @@ public class addProject_controller implements Initializable {
                 if (!newValue.matches("\\d*")) {
                     showAlert("Invalid Input","Please enter only numeric values.");
                     // Revert to the old value if the new value is invalid
+                    pr_id.setText(oldValue);
+                }
+                else if (newValue.length()>10){
+                    showAlert("Invalid Input","Please enter only 10 digits.");
                     pr_id.setText(oldValue);
                 }
                 else {
@@ -213,13 +211,17 @@ public class addProject_controller implements Initializable {
     @FXML
     void addMembertoList(ActionEvent event) {
         if (count<4){           //to stop adding more than 5 members
-
-            members.add(member_name.getText());
-            memberList.getItems().clear();      //clear the input text field
-            memberList.getItems().addAll(members);
-            member_name.clear();
-            count+=1;
-            member1.setText(count+" members");
+            if (member_name.getText().isEmpty()) {
+                showAlert("Error", "Please enter a member name");
+            }
+            else {
+                members.add(member_name.getText());
+                memberList.getItems().clear();      //clear the input text field
+                memberList.getItems().addAll(members);
+                member_name.clear();
+                count += 1;
+                member1.setText(count + " members");
+            }
         }
         else {
             System.out.println("You can only add 4 members");       //Showing alert when trying to add more than four members
@@ -253,6 +255,7 @@ public class addProject_controller implements Initializable {
         File selectedfile = fileChooser.showOpenDialog(stage);
         if (selectedfile != null){
             Image image = new Image(selectedfile.toURI().toString());
+            //assigning image into string variable
             image_path = selectedfile.toURI().toString();
             logoView.setImage(image);
 
@@ -268,8 +271,10 @@ public class addProject_controller implements Initializable {
     }
 
 
+    //User clickes the reset button
     @FXML
     void inputReset(ActionEvent event) {
+        //Resetting fields and left panel
         setFieldsEmpty();
         setLeftPannel();
     }
@@ -296,11 +301,12 @@ public class addProject_controller implements Initializable {
         country1.setText("Country");
     }
 
+    //Submit button is clicked
     @FXML
     void inputSubmit(ActionEvent event) throws IOException {
         System.out.println("submit btn clicked.....");
         //Checking weather all the fields are completed or not
-        if (pr_name.getText().isEmpty()||pr_id.getText().isEmpty()||cat_list.getItems().isEmpty()||description.getText().isEmpty()||countryCombo.getItems().isEmpty()||logoView.getImage()==null){
+        if (pr_name.getText().isEmpty()||pr_id.getText().isEmpty()||cat_list.getValue() ==null||description.getText().isEmpty()||countryCombo.getValue()==null||logoView.getImage()==null){
             showAlert("Complete all","Please fill all the fields in here");
         }
         else {
@@ -328,7 +334,7 @@ public class addProject_controller implements Initializable {
 
 
             } else {
-                showAlert("Error 404","You must need at least two members to add a project");
+                showAlert("Warning","You must need at least two members to project");
             }
         }
 
@@ -384,5 +390,5 @@ public class addProject_controller implements Initializable {
         country1.setText(countryCombo.getValue());
     }
 
-    
+
 }

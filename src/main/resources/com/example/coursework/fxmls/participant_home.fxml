@@ -18,7 +18,7 @@
             <Image url="@../images/request.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="85.0" layoutX="24.0" layoutY="14.0" onMouseClicked="#onClickBack2Home" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="40.0" fitWidth="85.0" layoutX="24.0" layoutY="14.0" onMouseClicked="#onClickBack2Home" pickOnBounds="true" preserveRatio="true" styleClass="back">
          <image>
             <Image url="@../images/Adminback.png" />
          </image>

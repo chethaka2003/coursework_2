@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:id="msgView" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.ViewMassageController">
+   <children>
+      <ImageView fitHeight="71.0" fitWidth="67.0" layoutX="14.0" layoutY="569.0" onMouseClicked="#deleteClicked" pickOnBounds="true" preserveRatio="true" styleClass="delete">
+         <image>
+            <Image url="@../images/delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="42.0" fitWidth="39.0" layoutX="14.0" layoutY="21.0" onMouseClicked="#backBtnClicked" pickOnBounds="true" preserveRatio="true" styleClass="back">
+         <image>
+            <Image url="@../images/Adminback.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="53.0" fitWidth="63.0" layoutX="63.0" layoutY="14.0" onMouseClicked="#homeBtnClicked" pickOnBounds="true" preserveRatio="true" styleClass="home">
+         <image>
+            <Image url="@../images/home.png" />
+         </image>
+      </ImageView>
+      <ScrollPane layoutX="159.0" layoutY="114.0" prefHeight="418.0" prefWidth="610.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="massageShow" layoutY="1.0" prefHeight="418.0" prefWidth="610.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

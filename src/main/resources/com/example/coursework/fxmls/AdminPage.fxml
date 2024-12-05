@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="Adminpage" prefHeight="650.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.coursework.AdminPageController">
    <children>
-      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="56.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true" styleClass="resultbtn">
+      <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="56.0" layoutY="275.0" onMouseClicked="#showResult" pickOnBounds="true" preserveRatio="true" styleClass="resultbtn">
          <image>
             <Image url="@../images/show_result.png" />
          </image>
@@ -34,7 +34,7 @@
             <Image url="@../images/star_giver.png" />
          </image>
       </ImageView>
-      <Pane layoutX="743.0" layoutY="547.0" prefHeight="100.0" prefWidth="152.0" styleClass="massage">
+      <Pane fx:id="msgBtn" layoutX="743.0" layoutY="547.0" onMouseClicked="#msgView" prefHeight="100.0" prefWidth="142.0" styleClass="massage">
          <children>
             <ImageView fitHeight="43.0" fitWidth="41.0" layoutX="57.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
